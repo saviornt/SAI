@@ -1,0 +1,44 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: sai_backend
+    ports:
+      - "8000:8000"
+    environment:
+      - MONGO_URI=mongodb://root:password@mongo:27017/sai
+      - REDIS_URI=redis://default:password@redis:6379
+    depends_on:
+      - mongo
+      - redis
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: sai_frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+  mongo:
+    image: mongo:latest
+    container_name: sai_mongo
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+
+  redis:
+    image: redis:8.0-M02-alpine
+    container_name: sai_redis
+    ports:
+      - "6379:6379"
+    command: ["redis-server", "--requirepass", "password"]
+
+networks:
+  default:
+    name: sai_network

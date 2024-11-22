@@ -1,0 +1,1 @@
+# Simulated chemistry environment for the AI to use

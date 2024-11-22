@@ -1,0 +1,1 @@
+# Simulated financial environment for the AI to use

@@ -1,0 +1,43 @@
+services:
+  app:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    container_name: self-improving-app
+    ports:
+      - "8000:8000" # Expose port 8000 for your application
+    depends_on:
+      - redis
+      - mongo
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/
+      - REDIS_HOST=redis
+    volumes:
+      - ./app:/app
+    networks:
+      - app-network
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    ports:
+      - "6379:6379" # Expose Redis port
+    networks:
+      - app-network
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    ports:
+      - "27017:27017" # Expose MongoDB port
+    networks:
+      - app-network
+    volumes:
+      - mongo-data:/data/db # Persist MongoDB data
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mongo-data:

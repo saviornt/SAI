@@ -1,0 +1,12 @@
+# Dockerfile for Databases - Dockerfile.database
+
+# Use official MongoDB and Redis images
+FROM mongo:latest AS mongo
+FROM redis:8.0-M02-alpine AS redis
+
+# MongoDB setup
+ENV MONGO_INITDB_ROOT_USERNAME=root
+ENV MONGO_INITDB_ROOT_PASSWORD=password
+
+# Redis setup
+ENV REDIS_PASSWORD=password

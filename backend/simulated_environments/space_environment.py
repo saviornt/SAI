@@ -1,0 +1,1 @@
+# Simulated space environment for the AI to use

@@ -1,0 +1,51 @@
+# backend/files/file_type_dictionary.py
+
+def save_operations_dict():
+    return {
+        'json': 'save_json',
+        'txt': 'save_text',
+        'md': 'save_text',
+        'html': 'save_text',
+        'csv': 'save_csv',
+        'xlsx': 'save_xlsx',
+        'pdf': 'save_pdf',
+        'docx': 'save_docx',
+        'png': 'save_image',
+        'jpg': 'save_image',
+        'jpeg': 'save_image',
+        'mp4': 'save_mp4',
+        'mp3': 'save_audio',
+        'wav': 'save_audio',
+        'ogg': 'save_audio',
+        'zip': 'save_archive',
+        'tar': 'save_archive',
+        'gz': 'save_archive',
+        'sqlite': 'save_sqlite',
+        'pkl': 'save_pickle',
+        'xml': 'save_xml'
+    }
+
+def load_operations_dict():
+    return {
+        'json': 'load_json',
+        'txt': 'load_text',
+        'md': 'load_text',
+        'html': 'load_text',
+        'csv': 'load_csv',
+        'xlsx': 'load_xlsx',
+        'pdf': 'load_pdf',
+        'docx': 'load_docx',
+        'png': 'load_image',
+        'jpg': 'load_image',
+        'jpeg': 'load_image',
+        'mp4': 'load_mp4',
+        'mp3': 'load_audio',
+        'wav': 'load_audio',
+        'ogg': 'load_audio',
+        'zip': 'load_archive',
+        'tar': 'load_archive',
+        'gz': 'load_archive',
+        'sqlite': 'load_sqlite',
+        'pkl': 'load_pickle',
+        'xml': 'load_xml'
+    }

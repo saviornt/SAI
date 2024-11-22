@@ -1,0 +1,24 @@
+# Dockerfile for Frontend - Dockerfile.frontend
+
+# Use Node.js as base image
+FROM node:20-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Copy package.json and install dependencies
+COPY ./frontend/package.json ./
+COPY ./frontend/package-lock.json ./
+RUN npm install
+
+# Copy frontend source code to container
+COPY ./frontend /app/frontend
+
+# Build the production version of the frontend
+RUN npm run build
+
+# Expose the port used by Next.js
+EXPOSE 3000
+
+# Start the Next.js server
+CMD ["npm", "start"]

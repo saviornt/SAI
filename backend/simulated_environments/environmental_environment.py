@@ -1,0 +1,1 @@
+# Simulated environmental and ecological environment for the AI to use
