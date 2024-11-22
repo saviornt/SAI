@@ -14,7 +14,8 @@ This project will use a combination of Quantum Neural Networks, Deep Neural Netw
 
 ### Meta-Learning and Reward Mechanisms
 
-With the above ML algorithms, we will use a self-reinforcement learning method of using Meta-Learning, Q-Learning and A* Pathfinding.
+With the above ML algorithms, we will use an unsupervised, self-reinforcement learning method using a combination of 
+Meta-Learning, Q-Learning and A* Pathfinding.
 
 - Meta-Learning: Meta-Learning will enable the AI to learn from experience and adapt to new tasks.
 - Q-Learning: Q-Learning is used to provide the AI with rewards for finding the correct answers.
