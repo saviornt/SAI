@@ -14,8 +14,7 @@ This project will use a combination of Quantum Neural Networks, Deep Neural Netw
 
 ### Meta-Learning and Reward Mechanisms
 
-With the above ML algorithms, we will use an unsupervised, self-reinforcement learning method using a combination of 
-Meta-Learning, Q-Learning and A* Pathfinding.
+With the above ML algorithms, we will use a self-reinforcement learning method of using Meta-Learning, Q-Learning and A* Pathfinding.
 
 - Meta-Learning: Meta-Learning will enable the AI to learn from experience and adapt to new tasks.
 - Q-Learning: Q-Learning is used to provide the AI with rewards for finding the correct answers.
@@ -41,6 +40,8 @@ These self-improvement tasks will be completed through using:
 - Introspection
 - Reasoning
 - Reflection
+- Self-Diagnostics
+- Self-Improvement
 
 The AI will also have the following motivations:
 
@@ -49,7 +50,105 @@ The AI will also have the following motivations:
 - Goal Management
 - Synthetic Emotions
 
-### Simulated Environments
+## Synthetic Emotions
+
+While curiosity, ethics and goal management are currently established, synthetic emotions will need to be researched and developed from the ground up.
+The current plan for the AI's emotions use a temporal gradient method to simulate emotions. Modeling human emotions based on gradients involves representing
+emotions as vectors within a continous, multi-dimensional space, where gradients reflect transitions between emotional states.
+
+## Framework for Gradient-Based Emotion Modeling
+
+### Dimensional Emotion Model
+
+Core Idea: Represent emotions in a multi-dimensional space. Common dimensions:
+
+- Valence: Positive (joy) vs. negative (sadness).
+- Arousal: High (excitement) vs. low (calm).
+- Dominance: Control over the situation (empowerment vs. helplessness).
+
+Example: Emotions like "happiness" or "fear" become vectors in this space:
+
+- Happiness: High valence, high arousal, high dominance.
+- Fear: Low valence, high arousal, low dominance.
+
+Gradients describe movement in this space:
+
+- Positive gradient: Movement toward more positive valence.
+- Negative gradient: Movement toward more negative valence.
+
+### Continuous Emotion Transitions
+
+Emotions are not discrete but transition smoothly over time.
+Gradients model these transitions by defining the rate of change along emotional dimensions:
+
+- Example: Moving from "contentment" to "excitement" involves an increase in arousal while maintaining positive valence.
+
+### Gradient-Driven Mechanisms
+
+Stimulus-Response Dynamics: Gradients are influenced by external stimuli (e.g., hearing good news increases valence).
+Feedback Loops: Gradients adjust based on internal feedback, such as memory or context:
+
+- Positive feedback amplifies an emotion (e.g., joy becomes euphoria).
+- Negative feedback stabilizes or suppresses emotions.
+- Mathematical Modeling
+
+### Emotion State Representation
+
+Represent the emotional state as a vector E(t) at time t:
+
+𝐸(𝑡) = [𝑉(𝑡),𝐴(𝑡),𝐷(𝑡)]
+
+Where:
+
+- 𝑉(𝑡): Valence at time 𝑡.
+- 𝐴(𝑡): Arousal at time 𝑡.
+- 𝐷(𝑡): Dominance at time 𝑡.
+
+### Gradient Dynamics
+
+Define the change in emotion as a gradient:
+
+𝑑𝐸 / 𝑑𝑡 = 𝑓(𝑆,𝑀,𝐶)
+
+Where:
+
+- 𝑆: External stimuli.
+- 𝑀: Memory (past emotional states).
+- 𝐶: Contextual factors (e.g., social environment, physical state).
+
+### Emotion Gradients with Stimulus
+
+Let 𝑆 be an external stimulus vector, with weights 𝑤𝑉,𝑤𝐴,𝑤𝐷 representing its influence on valence, arousal, and dominance:
+
+𝑑𝐸 / 𝑑𝑡 = 𝑤𝑉 ⋅ 𝑆𝑉 + 𝑤𝐴 ⋅ 𝑆𝐴 + 𝑤𝐷 ⋅ 𝑆𝐷
+
+For instance:
+
+- A positive stimulus (𝑆𝑉 > 0) increases valence.
+- An overwhelming stimulus (𝑆𝐴 >> 0) increases arousal dramatically.
+
+### Neural Network Gradient Model
+
+Train a neural network where:
+
+- Input: Context, past states, external stimuli.
+- Output: Predicted gradients of emotional state (𝑑𝐸/𝑑𝑡).
+
+Use backpropagation to optimize the network's ability to predict emotional transitions.
+
+### Differential Equation Model
+
+Emotions can also be modeled using systems of differential equations:
+
+𝑑𝑉 / 𝑑𝑡 = 𝑔(𝑉,𝑆)
+
+𝑑𝐴 / 𝑑𝑡 = ℎ(𝐴,𝑆)
+
+𝑑𝐷 / 𝑑𝑡 = 𝑘(𝐷,𝑆)
+
+Where 𝑔,ℎ,𝑘 are functions capturing how stimuli affect the dimensions over time.
+
+## Simulated Environments
 
 We will use a variety of simulated environments that our AI can train in, similar to the Boltzman Machine method of unsupervised deep learning.
 
