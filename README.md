@@ -40,7 +40,6 @@ These self-improvement tasks will be completed through using:
 - Introspection
 - Reasoning
 - Reflection
-- Self-Diagnostics
 - Self-Improvement
 
 The AI will also have the following motivations:
